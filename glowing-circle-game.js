@@ -189,10 +189,13 @@ function drawStars() {
 
 
 function drawScore() {
-  ctx.font = '20px Arial';
-  ctx.fillStyle = 'white';
-  ctx.fillText('Score: ' + score, 100, 30);
+  if (score > 0) {
+    ctx.font = '20px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText('Score: ' + score, 100, 60); // Change the value '30' to '60' or any other desired value
+  }
 }
+
 
 function updateRing(event) {
   if (event instanceof TouchEvent) {
