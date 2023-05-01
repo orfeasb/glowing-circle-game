@@ -76,15 +76,19 @@ function resizeCanvas() {
   canvas.height = window.innerHeight;
   circleX = canvas.width / 2;
   circleY = canvas.height / 2;
+  setSizes();
   console.log(`Canvas size: ${canvas.width} x ${canvas.height}`);
 }
-
+function setSizes() {
+  circleRadius = Math.min(canvas.width, canvas.height) * 0.04*2;
+  starRadius = Math.min(canvas.width, canvas.height) * 0.015;
+}
 
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 ;
 
-const circleRadius = 50;
+setSizes();
 const innerRadius = circleRadius - 2;
 let spawnInterval = 500;
 let starLifetime = 2000;
@@ -112,14 +116,13 @@ function gameLoop() {
       showGameOverScreen(); // Call the game over screen function when the game is over
     }
 
-    drawScore(); // Move this line inside the if (gameStarted && !gameOver) block
+    drawScore();
   } else if (gameOver) {
     drawGameOver();
   }
 
   requestAnimationFrame(gameLoop);
 }
-
 
 
 function drawCircle() {
@@ -186,13 +189,10 @@ function drawStars() {
 
 
 function drawScore() {
-  if (score > 0) {
-    ctx.font = '20px Arial';
-    ctx.fillStyle = 'white';
-    ctx.fillText('Score: ' + score, 100, 30);
-  }
+  ctx.font = '20px Arial';
+  ctx.fillStyle = 'white';
+  ctx.fillText('Score: ' + score, 100, 30);
 }
-
 
 function updateRing(event) {
   if (event instanceof TouchEvent) {
