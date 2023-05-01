@@ -187,8 +187,9 @@ function drawStars() {
 function drawScore() {
   ctx.font = '20px Arial';
   ctx.fillStyle = 'white';
-  ctx.fillText('Score: ' + score, 100, 30);
+  ctx.fillText('Score: ' + score, 10, 30); // Change the X coordinate from 100 to 10
 }
+
 
 function updateRing(event) {
   if (event instanceof TouchEvent) {
