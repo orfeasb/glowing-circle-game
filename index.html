@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    
+    .hidden {
+      display: none;
+    }
+  
+    #rules.hidden {
+      display: none;
+    }
+
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glowing Circle Game</title>
   <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: black;
-    }
+#gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#gameCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#gameTitle {
+  text-align: center;
+  font-size: 32px;
+  color: white;
+}
+
+#rules {
+  text-align: center;
+  z-index: 1;
+}
+
+#startButton {
+  margin-top: 20px;
+}
+
   </style>
 </head>
 <body>
-  <canvas id="gameCanvas" width="1280" height="1080"></canvas>
-  <audio id="blip" src="blip.wav" preload="auto"></audio>
+  <div id="gameContainer">
+    <canvas id="gameCanvas"></canvas>
+    <div id="gameTitle">Glowing Circle Game</div>
+    <div id="rules">
+      <h2>Game Rules:</h2>
+      <ol>
+        <li>Move your mouse to control the black circle.</li>
+        <li>Collect yellow stars to increase your score.</li>
+        <li>Expired stars will decrease your score.</li>
+      </ol>
+      <button id="startButton">Start Game</button>
+    </div>
+  </div>
   <script src="glowing-circle-game.js"></script>
 </body>
 </html>
