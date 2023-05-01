@@ -323,5 +323,22 @@ canvas.addEventListener('click', (event) => {
 
 
 canvas.addEventListener('mousemove', updateRing);
+canvas.addEventListener('touchstart', (event) => {
+  event.preventDefault(); // Prevent default touch event behavior
+  if (!gameStarted && !gameOver) {
+    startGame();
+  } else if (gameOver) {
+    restartGame();
+  }
+});
+
+canvas.addEventListener('touchmove', (event) => {
+  event.preventDefault(); // Prevent default touch event behavior
+  updateRing(event.touches[0]); // Update the position of the ring based on the first touch point
+});
+
+canvas.addEventListener('touchend', (event) => {
+  event.preventDefault(); // Prevent default touch event behavior
+});
 
 
