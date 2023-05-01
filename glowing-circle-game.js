@@ -191,6 +191,7 @@ function drawScore() {
 }
 
 
+
 function updateRing(event) {
   if (event instanceof TouchEvent) {
     circleX = event.targetTouches[0].clientX - canvas.getBoundingClientRect().left;
