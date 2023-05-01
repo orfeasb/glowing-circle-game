@@ -191,9 +191,15 @@ function drawScore() {
 }
 
 function updateRing(event) {
-  circleX = event.clientX - canvas.getBoundingClientRect().left;
-  circleY = event.clientY - canvas.getBoundingClientRect().top;
+  if (event instanceof TouchEvent) {
+    circleX = event.targetTouches[0].clientX - canvas.getBoundingClientRect().left;
+    circleY = event.targetTouches[0].clientY - canvas.getBoundingClientRect().top;
+  } else {
+    circleX = event.clientX - canvas.getBoundingClientRect().left;
+    circleY = event.clientY - canvas.getBoundingClientRect().top;
+  }
 }
+
 
 const cMajorScale = [261.63, 261.63, 392.00, 392.00, 440.00, 440.00, 392.00, 349.23, 349.23, 329.63, 329.63, 293.66, 293.66, 261.63];
 
@@ -341,5 +347,6 @@ canvas.addEventListener('touchmove', (event) => {
 canvas.addEventListener('touchend', (event) => {
   event.preventDefault(); // Prevent default touch event behavior
 });
+
 
 
