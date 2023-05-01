@@ -112,13 +112,14 @@ function gameLoop() {
       showGameOverScreen(); // Call the game over screen function when the game is over
     }
 
-    drawScore();
+    drawScore(); // Move this line inside the if (gameStarted && !gameOver) block
   } else if (gameOver) {
     drawGameOver();
   }
 
   requestAnimationFrame(gameLoop);
 }
+
 
 
 function drawCircle() {
@@ -185,11 +186,12 @@ function drawStars() {
 
 
 function drawScore() {
-  ctx.font = '20px Arial';
-  ctx.fillStyle = 'white';
-  ctx.fillText('Score: ' + score, 10, 30); // Change the X coordinate from 100 to 10
+  if (score > 0) {
+    ctx.font = '20px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText('Score: ' + score, 100, 30);
+  }
 }
-
 
 
 function updateRing(event) {
@@ -293,9 +295,8 @@ function drawGameOver() {
   ctx.fillText('Last Game Score: ' + lastGameScore, canvas.width / 2, canvas.height / 2); // Display the last game's score
   ctx.fillText('Highest Score: ' + highestScore, canvas.width / 2, canvas.height / 2 + 20);
   ctx.fillText('Click to start again', canvas.width / 2, canvas.height / 2 + 60);
-
-  drawScore();
 }
+
 
 function restartGame() {
  spawnInterval = 500;
@@ -349,6 +350,5 @@ canvas.addEventListener('touchmove', (event) => {
 canvas.addEventListener('touchend', (event) => {
   event.preventDefault(); // Prevent default touch event behavior
 });
-
 
 
