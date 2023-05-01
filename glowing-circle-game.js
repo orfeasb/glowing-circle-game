@@ -325,6 +325,7 @@ canvas.addEventListener('click', (event) => {
 canvas.addEventListener('mousemove', updateRing);
 canvas.addEventListener('touchstart', (event) => {
   event.preventDefault(); // Prevent default touch event behavior
+  updateRing(event.touches[0]); // Update the position of the ring based on the first touch point
   if (!gameStarted && !gameOver) {
     startGame();
   } else if (gameOver) {
