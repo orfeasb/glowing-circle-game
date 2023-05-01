@@ -2,52 +2,50 @@
 <html lang="en">
 <head>
   <style>
-    body {
-      background-color: black;
-      color: white;
-    }
-    
-    .hidden {
-      display: none;
-    }
-  
-    #rules.hidden {
-      display: none;
-    }
+  body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    overflow: hidden;
+  }
 
-  </style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glowing Circle Game</title>
-  <style>
-#gameContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-}
+  .hidden {
+    display: none;
+  }
 
-#gameCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+  #rules.hidden {
+    display: none;
+  }
 
-#gameTitle {
-  text-align: center;
-  font-size: 32px;
-  color: white;
-}
+  #gameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
 
-#rules {
-  text-align: center;
-  z-index: 1;
-}
+  #gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+  }
 
-#startButton {
-  margin-top: 20px;
-}
+  #gameTitle {
+    text-align: center;
+    font-size: 32px;
+    color: white;
+  }
+
+  #rules {
+    text-align: center;
+    z-index: 1;
+  }
+
+  #startButton {
+    margin-top: 20px;
+  }
 
   </style>
 </head>
